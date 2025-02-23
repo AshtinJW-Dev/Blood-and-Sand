@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Button } from "../components/ui/button"; // Assuming you're using Shadcn's Button component
+import { Button } from "./ui/button"; // Assuming you're using Shadcn's Button component
 import Link from "next/link";
 
 const Navbar = () => {
@@ -14,7 +14,7 @@ const Navbar = () => {
     <nav className="bg-gray-800 text-white p-4 shadow-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo/Brand */}
-        <div className="text-2xl font-bold">Blood and Sand</div>
+        <div className="text-2xl font-bold"><Link href="/">Blood and Sand</Link></div>
 
         {/* Desktop Navigation Menu */}
         <div className="hidden md:flex space-x-6">

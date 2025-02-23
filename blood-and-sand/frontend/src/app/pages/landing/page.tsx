@@ -1,7 +1,7 @@
 // src/app/landing/page.tsx
-import Hero from "../../pages/landing/sections/Hero";
-import Features from "../../pages/landing/sections/Features";
-import CTA from "../../pages/landing/sections/CTA";
+import Hero from "./sections/Hero";
+import Features from "./sections/Features";
+import CTA from "./sections/CTA";
 
 const LandingPage = () => {
   return (

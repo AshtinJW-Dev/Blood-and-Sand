@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";  // Import your Navbar component
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,9 +34,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <main className="flex-1">{children}</main>
 
         {/* Footer */}
-        <footer className="bg-gray-800 text-white py-4 text-center">
-          <p>&copy; 2025 Blood and Sand. All rights reserved.</p>
-        </footer>
+        <Footer></Footer>
       </body>
     </html>
   );
