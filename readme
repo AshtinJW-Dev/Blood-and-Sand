@@ -1,0 +1,56 @@
+# Blood and Sand
+
+## Project Description
+Blood and Sand is a web-based game that I am building as a passion project to learn web technologies. The game features an engaging storyline, interactive gameplay, and a modern design to provide an immersive experience for players.
+
+## Features
+- Responsive design
+- Interactive gameplay elements
+- User authentication
+- Dynamic content
+- SEO optimization
+
+## Technologies Used
+- HTML5
+- CSS3
+- Tailwind CSS
+- JavaScript
+- Next.js
+- Node.js
+- Express.js
+- Firebase
+
+## Installation
+1. Clone the repository:
+    ```
+    git clone https://github.com/yourusername/blood-and-sand.git
+    ```
+2. Navigate to the project directory:
+    ```
+    cd blood-and-sand
+    ```
+3. Install dependencies:
+    ```
+    npm install
+    ```
+
+## Usage
+1. Start the development server:
+    ```
+    npm start
+    ```
+2. Open your browser and navigate to `http://localhost:3000`
+
+## Contributing
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature-branch`)
+3. Make your changes
+4. Commit your changes (`git commit -m 'Add some feature'`)
+5. Push to the branch (`git push origin feature-branch`)
+6. Open a pull request
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+For any inquiries, please contact me at ashtinjw.dev@gmail.com

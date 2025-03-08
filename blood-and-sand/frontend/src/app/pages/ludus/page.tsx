@@ -1,9 +1,10 @@
 "use client"
 import { useState, useEffect, useCallback } from 'react';
+import GladiatorCard from './GladiatorCard'; // Import the new GladiatorCard component
 
 const LudusPage = () => {
   interface Gladiator {
-    id: string | number;
+    id: number;
     name: string;
     health: number;
     attack: number;
@@ -37,34 +38,6 @@ const LudusPage = () => {
     fetchGladiators();
   }, [fetchGladiators]);
 
-  const updateGladiator = async (id: string | number, data: any) => {
-    if (!id) {
-      console.error('Invalid gladiator ID for update');
-      return;
-    }
-    try {
-      console.log(`Updating gladiator with id: ${id}`);
-      console.log('Data:', data);
-      const response = await fetch(`http://192.168.3.97:5000/api/gladiators/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const updatedGladiator = await response.json();
-      setGladiators((prevGladiators) =>
-        prevGladiators.map((gladiator) =>
-          gladiator.id === id ? { ...gladiator, ...updatedGladiator } : gladiator
-        )
-      );
-    } catch (err) {
-      console.error('Failed to update gladiator:', err);
-    }
-  };
 
   const trainGladiator = async (id: string | number, skill: string) => {
     if (!id) {
@@ -191,49 +164,13 @@ const LudusPage = () => {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {gladiators.map((gladiator) => (
-          <div key={gladiator.id} className="border p-4 rounded-lg shadow-lg bg-white">
-            <h3 className="text-2xl font-semibold mb-2">{gladiator.name}</h3>
-            <p className="text-gray-700">Health: {gladiator.health}</p>
-            <p className="text-gray-700">Attack: {gladiator.attack}</p>
-            <p className="text-gray-700">Defense: {gladiator.defense}</p>
-            <p className="text-gray-700">Speed: {gladiator.speed}</p>
-            <p className="text-gray-700">Level: {gladiator.level}</p>
-            <p className="text-gray-700">Stamina: {gladiator.stamina}</p>
-            <p className="text-gray-700">Experience: {gladiator.experience}</p>
-            <p className="text-gray-700">Special Ability: {gladiator.specialAbility ? 'Yes' : 'No'}</p>
-            <div className='flex justify-between mt-4'>
-              <button
-                onClick={() => trainGladiator(gladiator.id, 'attack')}
-                className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
-              >
-                Train Attack
-              </button>
-              <button
-                onClick={() => trainGladiator(gladiator.id, 'defense')}
-                className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
-              >
-                Train Defense
-              </button>
-              <button
-                onClick={() => trainGladiator(gladiator.id, 'speed')}
-                className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
-              >
-                Train Speed
-              </button>
-              <button
-                onClick={() => healGladiator(gladiator.id)}
-                className="bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600"
-              >
-                Heal
-              </button>
-              <button
-                onClick={() => deleteGladiator(gladiator.id)}
-                className="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
+          <GladiatorCard
+            key={gladiator.id}
+            gladiator={gladiator}
+            trainGladiator={trainGladiator}
+            healGladiator={healGladiator}
+            deleteGladiator={deleteGladiator}
+          />
         ))}
       </div>
     </div>

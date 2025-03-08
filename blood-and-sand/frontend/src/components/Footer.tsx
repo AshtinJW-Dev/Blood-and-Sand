@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
     return (
@@ -11,21 +12,26 @@ const Footer = () => {
                     <Link href="/pages/profile" className="text-white hover:text-gray-400 mx-2">Profile</Link>
                     <Link href="/contact" className="text-white hover:text-gray-400 mx-2">Contact</Link>
                 </div>
-                <div className="mb-4">
-                    <Link href="https://www.facebook.com" className="text-white hover:text-gray-400 mx-2" aria-label="Facebook">
-                        <i className="fab fa-facebook-f"></i>
+                <div className="mb-4 flex justify-center space-x-4">
+                    <Link href="https://www.facebook.com" aria-label="Facebook" className="text-white hover:text-gray-400">
+                        <Facebook />
                     </Link>
-                    <Link href="https://www.twitter.com" className="text-white hover:text-gray-400 mx-2" aria-label="Twitter">
-                        <i className="fab fa-twitter"></i>
+                    <Link href="https://www.twitter.com" aria-label="Twitter" className="text-white hover:text-gray-400">
+                        <Twitter />
                     </Link>
-                    <Link href="https://www.instagram.com" className="text-white hover:text-gray-400 mx-2" aria-label="Instagram">
-                        <i className="fab fa-instagram"></i>
+                    <Link href="https://www.instagram.com" aria-label="Instagram" className="text-white hover:text-gray-400">
+                        <Instagram />
                     </Link>
-                    <Link href="https://www.linkedin.com" className="text-white hover:text-gray-400 mx-2" aria-label="LinkedIn">
-                        <i className="fab fa-linkedin-in"></i>
+                    <Link href="https://www.linkedin.com" aria-label="LinkedIn" className="text-white hover:text-gray-400">
+                        <Linkedin />
                     </Link>
                 </div>
                 <p>&copy; 2025 Blood and Sand. All rights reserved.</p>
+                <p>
+                    <Link target='blank' href="https://ajwdev.netlify.app/" className="text-white hover:text-gray-400 mx-2" aria-label="AJW">
+                           Ashtin Walter
+                        </Link>
+                </p>
             </div>
         </footer>
     );

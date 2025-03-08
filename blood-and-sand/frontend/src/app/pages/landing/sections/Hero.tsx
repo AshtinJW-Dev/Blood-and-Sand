@@ -12,6 +12,9 @@ export default function Hero() {
         <h1 className="text-5xl md:text-6xl font-bold tracking-wide">
           ⚔️ Blood & Sand
         </h1>
+        <h2 className="text-2xl md:text-3xl mt-2">
+          The Ultimate Gladiator Experience
+        </h2>
         <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
           Train your gladiators, build your Ludus, and fight for glory in the Colosseum!
         </p>
