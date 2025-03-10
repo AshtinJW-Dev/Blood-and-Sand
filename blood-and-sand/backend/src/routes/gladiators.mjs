@@ -6,17 +6,12 @@ const router = Router();
 
 router.get('/', async (req, res) => {
   try {
-    console.log('Fetching gladiators...');
     const gladiatorsCollection = collection(db, 'gladiators');
-    console.log('Gladiators Collection Reference:', gladiatorsCollection); // Log the collection reference
-    const querySnapshot = await getDocs(gladiatorsCollection);
-    console.log('Query Snapshot:', querySnapshot); // Log the query snapshot
-    const gladiatorsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    console.log('Fetched gladiators:', gladiatorsData); // Log fetched data
-    res.status(200).json(gladiatorsData);
+    const gladiatorsSnapshot = await getDocs(gladiatorsCollection);
+    const gladiatorsList = gladiatorsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    res.json(gladiatorsList);
   } catch (err) {
-    console.error('Error fetching gladiators:', err);
-    res.status(500).json({ error: 'Failed to fetch gladiators', err });
+    res.status(500).json({ message: err.message });
   }
 });
 

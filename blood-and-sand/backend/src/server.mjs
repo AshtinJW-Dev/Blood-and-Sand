@@ -5,6 +5,7 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan'; // Add morgan for logging
 import gladiatorsRouter from './routes/gladiators.mjs'; // Update the import path
+import battlesRouter from './routes/battles.mjs'; // Import the battles route
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,7 +18,8 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('dev')); // Use morgan middleware for logging
 
-app.use('/api/gladiators', gladiatorsRouter);
+app.use('/api/gladiators', gladiatorsRouter); // Ensure this line is present
+app.use('/api/battles', battlesRouter); // Use the battles route
 
 // Health check endpoint
 app.get('/health', (req, res) => {
